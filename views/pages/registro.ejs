@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Provisiones Stan</title>
+</head>
+
+<body>
+  <header class="nav-container"><%- include('../partials/navbar')%></header>
+
+  <div class="flex-center">
+    <h1> Registrate</h1>
+
+
+    <form action="" enctype="multipart/form-data" method="post" class="needs-validation" novalidate
+      onsubmit="process(event); return continueornot()">
+			
+      <div id="login-div">
+        <input type="text" id="name" name="name" value="" placeholder="Nombre" required />
+        <input type="number" id="age" name="age" value="" placeholder="Edad" required />
+        <input type="text" id="address" name="address" value="" placeholder="Direccion" required />
+        <input type="text" id="username" name="username" value="" placeholder="Email" required />
+        <input type="password" id="password" name="password" value="" placeholder="Password" required autocomplete="off" />
+        <input type="tel" id="phone" name="phone" value="" placeholder="Telefono" required />
+        <label for="image">Sube la foto de tu avatar </label>
+        <input id="image" type="file" name="image" required>
+        <hr />
+      </div>
+
+      <div>
+        <button type="submit" id="Login-btn" class="btn-enviar">
+          Registrarse
+        </button>
+      </div>
+    </form>
+
+    <div class="alert alert-info" style="display: none;"></div>
+    <!-- <form action="" method="post">
+      <div id="login-div">
+        <input type="text" id="username" name="username" value="" placeholder="Username" />
+        <input type="password" id="password" name="password" value="" placeholder="Password"/>
+      </div>
+      <div >
+        <button type="submit" id="login-btn" class="btn-enviar">
+          Enviar
+        </button>
+      </div>
+    </form>
+	</div> -->
+
+	<div>
+		<p>Ingresa a la pagina</p>
+		<button onclick="location.href='/login'" id="login-btn" class="btn-enviar">
+			Login
+		</button>
+	</div>
+	
+  <div ><%- include('../partials/footer')%></div>
+
+  <script src="/js/validateEmail.js"></script>
+	<script>
+    (() => {
+      'use strict'
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      preferredCountries: ["ar", "uy", "bo", "ur"],
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    const info = document.querySelector(".alert-info");
+
+    function process(event) {
+
+
+      const phoneNumber = phoneInput.getNumber();
+      phoneInputField.value = phoneNumber
+      // info.style.display = "";
+      // info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <base href="/">
+	<link rel="stylesheet" href="./styles.css" />
+  <title>Provisiones Stan</title>
+</head>
+
+
+<body>
+	<header class="nav-container">
+		<%- include('../partials/navbar')%>
+	</header>
+
+	<!-- <div class="flex-center">
+		<span>Error de acceso. Verifique usuario y contraseña</span>
+		<span>
+			Redirigiendo en <span id="time">5</span> segundos
+		</span>
+		<div role="status">
+			<span>Loading...</span>
+		</div>
+	</div>
+	<div>
+		<a href="/login">
+			<button class="btn-enviar">Volver a Login</button>
+		</a>
+	</div> -->
+	
+	<div class="container d-flex flex-column w-50 my-2">
+    <h2 class="text-center">TU CARRITO</h2>
+    <h3 class="text-center">
+      <% if(cartValid) { %>
+        Carrito ID = <%=cart._id%>
+          <% } %>
+    </h3>
+
+    <table class="table my-1">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Imagen</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody id="productsTable">
+        <% if (cart.products) { %>
+          <% cart.products.forEach((element)=> { %>
+            <tr>
+              <td style="text-transform: uppercase">
+                <%=element.id%>
+              </td>
+              <td style="text-transform: uppercase">
+                <%=element.name%>
+              </td>
+              <td>
+                $<%=element.price%>
+              </td>
+              <td>
+                <img src="<%=element.thumbnail%>" class="w-50" alt="..." />
+              </td>
+              <td>
+                <!-- <button class="btn btn-danger" onclick="alert(`Todavia no funciona`)">Sacar del carrito</button> -->
+                <button class="btn btn-danger" value="<%=element.id%>" onclick="deleteProd(event)">Sacar del
+                  carrito</button>
+
+              </td>
+            </tr>
+            <%} )%>
+              <% }%>
+      </tbody>
+    </table>
+    <div class="d-flex flex-row justify-content-center">
+
+      <form action="/cart" method="POST">
+        <button type="submit" class="btn btn-success " onclick="">Finalizar Compra</button>
+      </form>
+    </div>
+  </div>
+	
+	<div ><%- include('../partials/footer')%></div>
+</body>
+
+<script src="/js/deleteProd.js">
+</script>
+
+</html>

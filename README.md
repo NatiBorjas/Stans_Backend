@@ -1,2 +1,2 @@
-# Stans_Backend
-Proyecto Final del curso Backend Coderhouse
+# Backend_MERN
+Proyecto de Curso Backend CoderHouse
