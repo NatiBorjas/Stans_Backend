@@ -37,7 +37,7 @@ const cartController = {
       let productToCart = await getProduct(req.body.prod_id);
       await saveToCart(cartId.id, productToCart);
 
-      res.redirect("pages/carrito");
+      res.redirect("/carrito");
     } catch (error) {
       errorLogger.error({
         error: error.message,
