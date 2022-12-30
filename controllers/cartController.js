@@ -110,7 +110,7 @@ const cartController = {
 
       await deleteCart(req.user.cart_id);
 
-      res.redirect("pages/productos");
+      res.redirect("/carrito");
     } catch (error) {
       errorLogger.error({
         error: error.message,

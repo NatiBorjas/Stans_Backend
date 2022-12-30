@@ -20,20 +20,6 @@
 		<%- include('../partials/navbar')%>
 	</header>
 
-	<!-- <div class="flex-center">
-		<span>Error de acceso. Verifique usuario y contraseña</span>
-		<span>
-			Redirigiendo en <span id="time">5</span> segundos
-		</span>
-		<div role="status">
-			<span>Loading...</span>
-		</div>
-	</div>
-	<div>
-		<a href="/login">
-			<button class="btn-enviar">Volver a Login</button>
-		</a>
-	</div> -->
 	
 	<div class="container d-flex flex-column w-50 my-2">
     <h2 class="text-center">TU CARRITO</h2>
@@ -83,7 +69,7 @@
     </table>
     <div class="d-flex flex-row justify-content-center">
 
-      <form action="/cart" method="POST">
+      <form action="/carrito" method="POST">
         <button type="submit" class="btn btn-success " onclick="">Finalizar Compra</button>
       </form>
     </div>
