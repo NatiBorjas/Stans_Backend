@@ -18,8 +18,7 @@ const cartController = {
     try {
       if (req.isAuthenticated()) {
         let cart = await getCart(req.user.cart_id);
-
-        res.render("pages/cart", { cartValid: true, cart });
+        res.render("pages/carrito", { cartValid: true, cart });
       }
     } catch (error) {
       errorLogger.error({
@@ -38,7 +37,7 @@ const cartController = {
       let productToCart = await getProduct(req.body.prod_id);
       await saveToCart(cartId.id, productToCart);
 
-      res.redirect("/cart");
+      res.redirect("pages/carrito");
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -58,7 +57,7 @@ const cartController = {
 
       let cart = await deleteProdInCart(cartId.id, productToCart);
 
-      res.render("pages/cart", { cartValid: true, cart });
+      res.render("pages/carrito", { cartValid: true, cart });
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -104,14 +103,14 @@ const cartController = {
       );
 
       await sendPurchaseEmail(formattedProducts, user);
-      await sendSMS("La orden fue confirmada, su pedido esta en proceso");
+      await sendSMS("Pedido confirmado y en proceso");
       await sendWhatsapp(
         "Se ha creado una nueva orden de compra de parte de: " + req.user.name
       );
 
       await deleteCart(req.user.cart_id);
 
-      res.redirect("/home");
+      res.redirect("pages/productos");
     } catch (error) {
       errorLogger.error({
         error: error.message,

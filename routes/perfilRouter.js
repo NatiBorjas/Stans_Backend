@@ -23,20 +23,20 @@ const perfilRouter = Router();
 //   }
 // };
 
-perfilRouter.get("/miperfil", (req, res) => {
+perfilRouter.get("/", (req, res) => {
   try {
-    const info = {
-      argumentos: JSON.stringify(args),
-      directorioActual: process.cwd(),
-      idProceso: process.pid,
-      vNode: process.version,
-      rutaEjecutable: process.execPath,
-      sistemaOperativo: process.platform,
-      memoria: JSON.stringify(process.memoryUsage().rss, null, 2),
-      processNum: os.cpus().length,
-    };
+    // const info = {
+    //   argumentos: JSON.stringify(args),
+    //   directorioActual: process.cwd(),
+    //   idProceso: process.pid,
+    //   vNode: process.version,
+    //   rutaEjecutable: process.execPath,
+    //   sistemaOperativo: process.platform,
+    //   memoria: JSON.stringify(process.memoryUsage().rss, null, 2),
+    //   processNum: os.cpus().length,
+    // };
 
-    res.render("pages/miperfil", info);
+    res.render("/");
   } catch (error) {
     res.render(error.message);
   }

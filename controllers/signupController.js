@@ -22,7 +22,7 @@ const signupController = {
     try {
       req.session.username = req.user;
       await sendEmail(req.user);
-      res.status(200).redirect("/products");
+      res.status(200).redirect("/productos");
     } catch (error) {
       errorLogger.error({
         error: error.message,
