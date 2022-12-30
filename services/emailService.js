@@ -1,5 +1,5 @@
 const { createTransport } = require("nodemailer");
-const { logger } = require("../src/utils/logger");
+const { logger, errorLogger  } = require("../src/utils/logger");
 
 const path = require("path");
 

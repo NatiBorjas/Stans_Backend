@@ -4,7 +4,7 @@ const homeRouter = require("./homeRouter");
 const loginRouter = require("./loginRouter");
 const logoutRouter = require("./logoutRouter");
 const signupRouter = require("./signupRouter");
-const infoRouter = require("./infoRouter");
+const perfilRouter = require("./perfilRouter");
 const productRouter = require("./productosRouter");
 const cartRouter = require("./cartRouter");
 
@@ -19,12 +19,13 @@ const mainRouter = (app) => {
   });
 
   app.use("/login", loginRouter);
-  app.use("/signup", signupRouter);
+  app.use("/registro", signupRouter);
   app.use("/logout", logoutRouter);
   app.use("/home", homeRouter);
-  app.use("/info", infoRouter);
-  app.use("/products", productRouter);
-  app.use("/cart", cartRouter);
+  app.use("/miperfil", perfilRouter);
+  // app.use("/info", infoRouter);
+  app.use("/productos", productRouter);
+  app.use("/carrito", cartRouter);
 
   app.all("*", (req, res) => {
     logger.warn({ URL: req.originalUrl, method: req.method });

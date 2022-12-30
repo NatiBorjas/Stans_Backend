@@ -4,7 +4,7 @@ const loginController = {
   get: (req, res) => {
     try {
       if (req.isAuthenticated()) {
-        res.redirect("/home");
+        res.redirect("/products");
       } else {
         res.status(200).render("pages/login");
       }

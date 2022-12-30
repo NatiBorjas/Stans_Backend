@@ -15,7 +15,7 @@
 <body>
   <header class="nav-container"><%- include('../partials/navbar')%></header>
 
-  <div class="flex-center">
+  <div class="form-container">
     <h1> Registrate</h1>
 
 
@@ -29,9 +29,8 @@
         <input type="text" id="username" name="username" value="" placeholder="Email" required />
         <input type="password" id="password" name="password" value="" placeholder="Password" required autocomplete="off" />
         <input type="tel" id="phone" name="phone" value="" placeholder="Telefono" required />
-        <label for="image">Sube la foto de tu avatar </label>
+        <label for="image">Subí la imagen para tu avatar:</label>
         <input id="image" type="file" name="image" required>
-        <hr />
       </div>
 
       <div>
@@ -41,7 +40,7 @@
       </div>
     </form>
 
-    <div class="alert alert-info" style="display: none;"></div>
+    <!-- <div class="alert alert-info" style="display: none;"></div> -->
     <!-- <form action="" method="post">
       <div id="login-div">
         <input type="text" id="username" name="username" value="" placeholder="Username" />
@@ -68,7 +67,6 @@
 	<script>
     (() => {
       'use strict'
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
       const forms = document.querySelectorAll('.needs-validation')
 
       // Loop over them and prevent submission
@@ -83,24 +81,22 @@
       })
     })()
 
-    const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
-      preferredCountries: ["ar", "uy", "bo", "ur"],
-      utilsScript:
-        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    });
+    // const phoneInputField = document.querySelector("#phone");
+    // const phoneInput = window.intlTelInput(phoneInputField, {
+    //   preferredCountries: ["ar", "uy", "bo", "ur"],
+    //   utilsScript:
+    //     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    // });
 
-    const info = document.querySelector(".alert-info");
-
-    function process(event) {
-
-
-      const phoneNumber = phoneInput.getNumber();
-      phoneInputField.value = phoneNumber
-      // info.style.display = "";
-      // info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-    }
+    // const info = document.querySelector(".alert-info");
+    // function process(event) {
+    //   const phoneNumber = phoneInput.getNumber();
+    //   phoneInputField.value = phoneNumber
+    //   // info.style.display = "";
+    //   // info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    // }
   </script>
-</body>
+	
+	</body>
 
 </html>

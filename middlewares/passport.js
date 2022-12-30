@@ -10,12 +10,12 @@ const login = {
     Users.findOne({ username: username }, (err, user) => {
       if (err) return done(err);
       if (!user) {
-        logger.info({ message: "User not found with username " + username });
+        logger.info({ message: "Usuarix no encontrado: " + username });
 
         return done(null, false);
       }
       if (!isValidPassword(user, password)) {
-        logger.info({ message: "Invalid Password" });
+        logger.info({ message: "Contraseña erronea" });
         return done(null, false);
       }
 
@@ -30,13 +30,12 @@ const signup = {
     (req, username, password, done) => {
       Users.findOne({ username: username }, function (error, user) {
         if (error) {
-          logger.error({ message: "Error in SingnUp: " + error });
-
+          logger.error({ message: "Error al registrarse: " + error });
           return done(error);
         }
 
         if (user) {
-          logger.info({ message: "User already exists" });
+          logger.info({ message: "Ese usuarix ya existe" });
           return done(null, false);
         }
 
@@ -53,12 +52,10 @@ const signup = {
 
         Users.create(newUser, (err, user) => {
           if (err) {
-            logger.error({ message: "Error in Saving user: " + err });
-
+            logger.error({ message: "Error al guardar usuario: " + err });
             return done(err);
           }
-          logger.info({ message: "User Registration succesful" });
-
+          logger.info({ message: "Registro existoso" });
           return done(null, user);
         });
       });

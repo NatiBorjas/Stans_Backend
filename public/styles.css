@@ -79,15 +79,15 @@ ul li{
 }
 
 input{
-    font-size: 16px;
-    background-color: #0a0a23;
-    color: #00FFFF;
-    border: 1px solid #00FFFF;
-    border-radius: 10px;
-    margin: 10px 0;
-    min-height: 2em;
-    padding: 5px;
-		width: 50vw;
+  font-size: 16px;
+  background-color: #0a0a23;
+  color: #00FFFF;
+  border: 1px solid #00FFFF;
+  border-radius: 10px;
+  margin: 10px 0;
+  min-height: 2em;
+  padding: 5px;
+	width: 50vw;
 }
 
 .form-container {

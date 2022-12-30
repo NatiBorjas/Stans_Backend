@@ -1,5 +1,5 @@
 const {
-  getProducts,
+  getProductos,
   getProduct,
   saveProduct,
   deleteProduct,
@@ -9,20 +9,20 @@ const {
 const productController = {
   get: async (req, res) => {
     try {
-      let products = await getProducts();
-      if (req.headers.postman) {
-        res
-          .status(200)
-          .json({
-            products,
-          })
-          .end();
+      let productos = await getProductos();
+
+		if (productos.length > 0) {
+        res.render("pages/productos", {
+          productos: productos,
+          productosExist: true,
+        });
       } else {
-        res.render("pages/products", {
-          products,
-          message: false,
+        res.render("pages/productos", {
+          productos: productos,
+          productosExist: false,
         });
       }
+
     } catch (error) {
       res.status(500).send({
         status: 500,
@@ -34,9 +34,9 @@ const productController = {
   getIdProduct: async (req, res) => {
     const { id } = req.params;
     try {
-      let products = await getProduct(id);
+      let productos = await getProduct(id);
       res.status(200).json({
-        products,
+        productos,
       });
     } catch (error) {
       res.status(500).send({

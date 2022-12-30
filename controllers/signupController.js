@@ -5,7 +5,7 @@ const signupController = {
   get: (req, res) => {
     try {
       if (req.isAuthenticated()) {
-        res.redirect("/home");
+        res.redirect("/products");
       } else {
         res.status(200).render("pages/registro");
       }
@@ -22,7 +22,7 @@ const signupController = {
     try {
       req.session.username = req.user;
       await sendEmail(req.user);
-      res.status(200).redirect("/home");
+      res.status(200).redirect("/products");
     } catch (error) {
       errorLogger.error({
         error: error.message,

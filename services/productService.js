@@ -6,7 +6,7 @@ const {
   update,
 } = require("../daos/productosDaos");
 
-const getProducts = async () => {
+const getProductos = async () => {
   return await getAll();
 };
 
@@ -43,7 +43,7 @@ const updateProduct = async (id, newBody) => {
 };
 
 module.exports = {
-  getProducts,
+  getProductos,
   getProduct,
   saveProduct,
   deleteProduct,

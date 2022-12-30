@@ -3,16 +3,13 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
 const storage = multer.diskStorage({
-  destination: path.join(__dirname, "../public/uploads"),
+  destination: path.join(__dirname, "../public/pics"),
   filename: (req, file, cb) => {
-    //null es que no da error
-    //cb es callback
-    //file.originalname
     cb(null, uuidv4() + path.extname(file.originalname).toLocaleLowerCase());
   },
 });
 
-const upLoad = multer({
+const uploadImg = multer({
   storage,
   limits: { fileSize: 1000000 },
   fileFilter: (req, file, cb) => {
@@ -22,9 +19,8 @@ const upLoad = multer({
     if (mimetype && extname) {
       return cb(null, true);
     }
-    cb("error: archivo debe ser una imagen");
+    cb("error de archivo");
   },
-  // dest: path.join(__dirname, "../public/uploads"),  });
 }).single("image");
 
-module.exports = { upLoad };
+module.exports = { uploadImg };
