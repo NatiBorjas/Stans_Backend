@@ -5,7 +5,7 @@ const signupController = {
   get: (req, res) => {
     try {
       if (req.isAuthenticated()) {
-        res.redirect("/products");
+        res.redirect("/productos");
       } else {
         res.status(200).render("pages/registro");
       }

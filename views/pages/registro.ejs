@@ -18,10 +18,8 @@
   <div class="form-container">
     <h1> Registrate</h1>
 
-
     <form action="" enctype="multipart/form-data" method="post" class="needs-validation" novalidate
       onsubmit="process(event); return continueornot()">
-			
       <div id="login-div">
         <input type="text" id="name" name="name" value="" placeholder="Nombre" required />
         <input type="number" id="age" name="age" value="" placeholder="Edad" required />
@@ -32,27 +30,12 @@
         <label for="image">Subí la imagen para tu avatar:</label>
         <input id="image" type="file" name="image" required>
       </div>
-
       <div>
         <button type="submit" id="Login-btn" class="btn-enviar">
           Registrarse
         </button>
       </div>
     </form>
-
-    <!-- <div class="alert alert-info" style="display: none;"></div> -->
-    <!-- <form action="" method="post">
-      <div id="login-div">
-        <input type="text" id="username" name="username" value="" placeholder="Username" />
-        <input type="password" id="password" name="password" value="" placeholder="Password"/>
-      </div>
-      <div >
-        <button type="submit" id="login-btn" class="btn-enviar">
-          Enviar
-        </button>
-      </div>
-    </form>
-	</div> -->
 
 	<div>
 		<p>Ingresa a la pagina</p>
@@ -68,8 +51,6 @@
     (() => {
       'use strict'
       const forms = document.querySelectorAll('.needs-validation')
-
-      // Loop over them and prevent submission
       Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
           if (!form.checkValidity()) {
@@ -81,20 +62,20 @@
       })
     })()
 
-    // const phoneInputField = document.querySelector("#phone");
-    // const phoneInput = window.intlTelInput(phoneInputField, {
-    //   preferredCountries: ["ar", "uy", "bo", "ur"],
-    //   utilsScript:
-    //     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    // });
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      preferredCountries: ["ar", "uy", "bo", "ur"],
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
 
-    // const info = document.querySelector(".alert-info");
-    // function process(event) {
-    //   const phoneNumber = phoneInput.getNumber();
-    //   phoneInputField.value = phoneNumber
-    //   // info.style.display = "";
-    //   // info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-    // }
+    const info = document.querySelector(".alert-info");
+    function process(event) {
+      const phoneNumber = phoneInput.getNumber();
+      phoneInputField.value = phoneNumber
+      info.style.display = "";
+      info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    }
   </script>
 	
 	</body>

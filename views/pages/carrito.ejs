@@ -41,8 +41,8 @@
       </thead>
 
       <tbody id="productsTable">
-        <% if (cart.products) { %>
-          <% cart.products.forEach((element)=> { %>
+        <% if (cart.productos) { %>
+          <% cart.productos.forEach((element)=> { %>
             <tr>
               <td style="text-transform: uppercase">
                 <%=element.id%>
@@ -57,9 +57,7 @@
                 <img src="<%=element.thumbnail%>" class="w-50" alt="..." />
               </td>
               <td>
-                <!-- <button class="btn btn-danger" onclick="alert(`Todavia no funciona`)">Sacar del carrito</button> -->
-                <button class="btn btn-danger" value="<%=element.id%>" onclick="deleteProd(event)">Sacar del
-                  carrito</button>
+                <button class="" value="<%=element.id%>" onclick="deleteProd(event)">Eliminar</button>
 
               </td>
             </tr>

@@ -50,7 +50,6 @@ const productController = {
     try {
       const { body } = req;
       let product = await saveProduct(body);
-
       res.status(200).json({
         product,
       });

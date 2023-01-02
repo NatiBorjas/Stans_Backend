@@ -21,7 +21,7 @@ const get = async (cartId) => {
 const post = async (cartId, product) => {
   let cart = await Carts.findByIdAndUpdate(
     { _id: cartId },
-    { $addToSet: { products: product } }
+    { $addToSet: { productos: product } }
   );
 
   return;
@@ -30,19 +30,19 @@ const post = async (cartId, product) => {
 const delet = async (cartId, product) => {
   let cart = await Carts.findOne({ _id: cartId });
 
-  let prods = cart.products;
+  let prods = cart.productos;
   let prodsfiltered = prods.filter((element) => element.name != product.name);
 
   let newCart = await Carts.findByIdAndUpdate(
     { _id: cartId },
-    { products: prodsfiltered }
+    { productos: prodsfiltered }
   );
 
   return await Carts.findOne({ _id: cartId });
 };
 
 const deleteAllCart = async (cartId) => {
-  await Carts.findByIdAndUpdate({ _id: cartId }, { products: [] });
+  await Carts.findByIdAndUpdate({ _id: cartId }, { productos: [] });
 
   await Users.findOneAndUpdate({ cart_id: cartId }, { $unset: { cart_id: 1 } });
   return;

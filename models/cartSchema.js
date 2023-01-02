@@ -3,7 +3,7 @@ const { schemaProduct } = require("./productSchema");
 
 const schemaCart = new mongoose.Schema(
   {
-    products: [schemaProduct],
+    productos: [schemaProduct],
     user_id: { type: mongoose.Schema.ObjectId, required: true },
   },
   { timestamps: true }

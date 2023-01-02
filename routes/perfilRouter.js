@@ -23,7 +23,7 @@ const perfilRouter = Router();
 //   }
 // };
 
-perfilRouter.get("/", (req, res) => {
+perfilRouter.get("/miperfil", (req, res) => {
   try {
     // const info = {
     //   argumentos: JSON.stringify(args),
@@ -36,7 +36,8 @@ perfilRouter.get("/", (req, res) => {
     //   processNum: os.cpus().length,
     // };
 
-    res.render("/");
+    res.render("/miperfil");
+
   } catch (error) {
     res.render(error.message);
   }

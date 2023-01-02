@@ -18,6 +18,7 @@ const cartController = {
     try {
       if (req.isAuthenticated()) {
         let cart = await getCart(req.user.cart_id);
+				console.log("get carrito", cart)
         res.render("pages/carrito", { cartValid: true, cart });
       }
     } catch (error) {
@@ -35,9 +36,10 @@ const cartController = {
     try {
       let cartId = await getCart(req.user.cart_id);
       let productToCart = await getProduct(req.body.prod_id);
+			console.log("post carrito", cartId, productToCart)
       await saveToCart(cartId.id, productToCart);
-
       res.redirect("/carrito");
+
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -54,10 +56,10 @@ const cartController = {
       const { id } = req.params;
       let cartId = await getCart(req.user.cart_id);
       let productToCart = await getProduct(id);
-
       let cart = await deleteProdInCart(cartId.id, productToCart);
 
       res.render("pages/carrito", { cartValid: true, cart });
+
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -72,13 +74,12 @@ const cartController = {
   deleteProd: async (req, res) => {
     try {
       const { id, idProd } = req.params;
-
       let cartId = await getCart(id);
       let productToCart = await getProduct(idProd);
-
       let cart = await deleteProdInCart(cartId.id, productToCart);
 
       res.json(cart);
+
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -95,22 +96,22 @@ const cartController = {
       let cart = await getCart(req.user.cart_id);
       let user = req.user;
 
-      const formattedProducts = cart.products.map(
+      const formattedProducts = cart.productos.map(
         (product) =>
           `Producto: ${product.name} <br />
         Precio: $${product.price}
         `
       );
-
       await sendPurchaseEmail(formattedProducts, user);
       await sendSMS("Pedido confirmado y en proceso");
       await sendWhatsapp(
-        "Se ha creado una nueva orden de compra de parte de: " + req.user.name
+        "Se ha creado una nueva orden de compra de: " + req.user.name
       );
 
       await deleteCart(req.user.cart_id);
 
-      res.redirect("/carrito");
+      res.redirect("/home");
+
     } catch (error) {
       errorLogger.error({
         error: error.message,

@@ -17,7 +17,7 @@ const getProduct = async (id) => {
 const saveProduct = async (product) => {
   let necessaryProps = [
     "name",
-    // "description",
+    "description",
     "thumbnail",
     "price",
     "stock",

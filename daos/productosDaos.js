@@ -3,29 +3,6 @@
 
 const { Productos } = require("../models/productSchema");
 
-// const productosDaos = {
-//   getData: async (req, res) => {
-//     try {
-//       let productos = await crearProductosApi(5);
-//       if (productos.length > 0) {
-//         res.render("pages/products", {
-//           products: productos,
-//           productsExist: true,
-//         });
-//       } else {
-//         res.render("pages/products", {
-//           products: productos,
-//           productsExist: false,
-//         });
-//       }
-//     } catch (e) {
-// 			errorLogger.error({
-// 				error: error.message,
-// 			});
-//       res.status(500).send({ error });
-//     }
-//   },
-// };
 const getAll = async () => {
   try {
     return await Productos.find({});
@@ -70,4 +47,3 @@ const update = async (id, newBody) => {
 };
 
 module.exports = { getAll, getById, save, delet, update };
-// module.exports = {productosDaos}
