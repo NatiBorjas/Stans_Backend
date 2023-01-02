@@ -18,7 +18,6 @@ const cartController = {
     try {
       if (req.isAuthenticated()) {
         let cart = await getCart(req.user.cart_id);
-				console.log("get carrito", cart)
         res.render("pages/carrito", { cartValid: true, cart });
       }
     } catch (error) {
@@ -36,7 +35,6 @@ const cartController = {
     try {
       let cartId = await getCart(req.user.cart_id);
       let productToCart = await getProduct(req.body.prod_id);
-			console.log("post carrito", cartId, productToCart)
       await saveToCart(cartId.id, productToCart);
       res.redirect("/carrito");
 
