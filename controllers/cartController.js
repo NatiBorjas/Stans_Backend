@@ -102,9 +102,7 @@ const cartController = {
       );
       await sendPurchaseEmail(formattedProducts, user);
       await sendSMS("Pedido confirmado y en proceso");
-      await sendWhatsapp(
-        "Se ha creado una nueva orden de compra de: " + req.user.name
-      );
+      await sendWhatsapp("Nueva orden de compra de: " + req.user.name);
 
       await deleteCart(req.user.cart_id);
 

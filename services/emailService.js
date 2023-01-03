@@ -12,27 +12,21 @@ const transporter = createTransport({
   },
 });
 
-const sendEmail = async ({ username, name, age, address, phone, image }) => {
+const sendEmail = async ( user) => {
   try {
-    const mailOptions = {
+		const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
       subject: `Nuevo registro de Usuarix:`,
       html: `
       <h1>USUARIX REGISTRADX:</h1>
-      <h2>NOMBRE ${name}usuario: ${username}</h2>
-      <p>Usuario: ${username}</p>
-      <p>Edad: ${age}</p>
-      <p>Direccion: ${address}</p>
-      <p>Telefono Celular: ${phone}</p>
-      <img src="${path.join(__dirname, "../public/uploads/") + image}" />
+      <h2>NOMBRE ${user.name}usuario: ${user.username}</h2>
+      <p>Usuario: ${user.username}</p>
+      <p>Edad: ${user.age}</p>
+      <p>Direccion: ${user.address}</p>
+      <p>Telefono Celular: ${user.phone}</p>
+      <img src="${path.join(__dirname, "../public/uploads/") + user.image}" />
       `,
-      attachments: [
-        {
-          filename: `${image}`,
-          path: path.join(__dirname, "../public/uploads/") + image,
-        },
-      ],
     };
     const info = await transporter.sendMail(mailOptions);
     logger.info({ message: "email enviado", info });

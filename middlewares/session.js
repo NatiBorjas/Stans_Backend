@@ -1,5 +1,6 @@
 const passport = require("passport");
-const { mongoSession } = require("../src/config/redis");
+const { mongoSession } = require("../src/config/session");
+
 const {
   login,
   signup,

@@ -4,7 +4,7 @@ const loginController = {
   get: (req, res) => {
     try {
       if (req.isAuthenticated()) {
-        res.redirect("/products");
+        res.redirect("/productos");
       } else {
         res.status(200).render("pages/login");
       }
@@ -19,6 +19,10 @@ const loginController = {
     try {
       const { username } = req.user;
       req.session.username = username;
+			// let user = await
+      // res.status(200).render("pages/miperfil", {
+			// 	user: username
+			// });
       // res.status(200).send(user);
 			// res.status(200).redirect("/home");
       res.send(req.user);

@@ -21,7 +21,9 @@ const signupController = {
   postsignup: async (req, res) => {
     try {
       req.session.username = req.user;
-      await sendEmail(req.user);
+			let user = req.session.username;
+			console.log(user)
+      await sendEmail(user);
       res.status(200).redirect("/productos");
     } catch (error) {
       errorLogger.error({
