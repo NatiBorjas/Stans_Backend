@@ -12,12 +12,12 @@ const productController = {
       let productos = await getProductos();
 
 		if (productos.length > 0) {
-        res.render("pages/productos", {
+        res.status(200).render("pages/productos", {
           productos: productos,
           productosExist: true,
         });
       } else {
-        res.render("pages/productos", {
+        res.status(200).render("pages/productos", {
           productos: productos,
           productosExist: false,
         });
@@ -34,9 +34,9 @@ const productController = {
   getIdProduct: async (req, res) => {
     const { id } = req.params;
     try {
-      let productos = await getProduct(id);
+			let producto = await getProduct(id);
       res.status(200).json({
-        productos,
+        producto,
       });
     } catch (error) {
       res.status(500).send({

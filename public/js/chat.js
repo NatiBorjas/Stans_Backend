@@ -18,7 +18,8 @@ const denormalize = (messages) => {
 
 const button = document.getElementById("submitMessage");
 button.addEventListener("click", (e) => {
-  const mensaje = {
+	
+	const mensaje = {
     author: {
       id: document.getElementById("email").value,
       alias: document.getElementById("alias").value,
@@ -27,7 +28,8 @@ button.addEventListener("click", (e) => {
     text: document.getElementById("caja-msg").value,
   };
   socket.emit("nuevo-mensaje", JSON.stringify(mensaje));
-  document.getElementById("caja-msg").value = "";
+  document.getElementById("caja-msg").value = "";	
+
 });
 
 socket.on("mensajes", (data) => {

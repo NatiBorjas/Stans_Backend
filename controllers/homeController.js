@@ -1,4 +1,4 @@
-const { createCart, getCart, saveToCart } = require("../services/cartService");
+const { createCart } = require("../services/cartService");
 const { userUpdate } = require("../services/userService");
 const { errorLogger } = require("../src/utils/logger");
 
@@ -7,7 +7,6 @@ const homeController = {
     try {
       if (req.isAuthenticated()) {
         const { cart_id } = req.user;
-
         if (!cart_id) {
           let newCartId = await createCart(req.user._id);
           await userUpdate(req.user._id, newCartId);
@@ -16,7 +15,7 @@ const homeController = {
           user: req.user,
         });
       } else {
-        res.redirect("/login/errorLogin");
+        res.redirect("/login");
       }
     } catch (error) {
       errorLogger.error({
@@ -31,12 +30,12 @@ const homeController = {
   getInfo: async (req, res) => {
     try {
       if (req.isAuthenticated()) {
-        res.render("pages/userInfo", {
+        res.render("pages/miperfil", {
           user: req.user,
         });
         res.end();
       } else {
-        res.redirect("/login/errorLogin");
+        res.redirect("/login");
       }
     } catch (error) {
       errorLogger.error({

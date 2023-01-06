@@ -19,13 +19,12 @@ const loginController = {
     try {
       const { username } = req.user;
       req.session.username = username;
-			// let user = await
-      // res.status(200).render("pages/miperfil", {
-			// 	user: username
-			// });
+      res.status(200).render("pages/miperfil", {
+				user: req.user,
+			});
       // res.status(200).send(user);
 			// res.status(200).redirect("/home");
-      res.send(req.user);
+      // res.send(req.user);
     } catch (error) {
       errorLogger.error(urlMethodError(req));
       return res.status(500).send({ status: "Log In error", body: error });

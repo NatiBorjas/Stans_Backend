@@ -23,7 +23,6 @@ const mainRouter = (app) => {
   app.use("/logout", logoutRouter);
   app.use("/home", homeRouter);
   app.use("/miperfil", perfilRouter);
-  // app.use("/info", infoRouter);
   app.use("/productos", productRouter);
   app.use("/carrito", cartRouter);
 

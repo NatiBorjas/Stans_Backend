@@ -27,3 +27,8 @@ httpServer.listen(PORT, () => {
   console.log("Servidor Funcionando en Puerto: " + PORT);
 });
 httpServer.on("error", (error) => console.log(`Error en servidor ${error}`));
+
+app.all("*", (req, res) => {
+	logger.warn({ URL: req.originalUrl, method: req.method });
+  res.status(404).send("Ruta no encontrada");
+});

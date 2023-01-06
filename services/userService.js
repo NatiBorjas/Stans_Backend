@@ -4,4 +4,8 @@ const userUpdate = async (userId, cartId) => {
   return await update(userId, cartId);
 };
 
-module.exports = { userUpdate };
+const userPerfil = async (userId) => {
+	return await perfil(userId);
+};
+
+module.exports = { userUpdate, userPerfil };

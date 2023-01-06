@@ -1,4 +1,5 @@
 const {
+	createCart,
   getCart,
   saveToCart,
   deleteProdInCart,
@@ -19,7 +20,10 @@ const cartController = {
       if (req.isAuthenticated()) {
         let cart = await getCart(req.user.cart_id);
         res.render("pages/carrito", { cartValid: true, cart });
-      }
+      } else {
+				let cart = createCart(req.user);
+				res.render("pages/carrito", { cartValid: true, cart });
+			}
     } catch (error) {
       errorLogger.error({
         error: error.message,
@@ -100,13 +104,13 @@ const cartController = {
         Precio: $${product.price}
         `
       );
+      
       await sendPurchaseEmail(formattedProducts, user);
       await sendSMS("Pedido confirmado y en proceso");
       await sendWhatsapp("Nueva orden de compra de: " + req.user.name);
+			await deleteCart(req.user.cart_id);
 
-      await deleteCart(req.user.cart_id);
-
-      res.redirect("/home");
+      res.redirect("/productos");
 
     } catch (error) {
       errorLogger.error({

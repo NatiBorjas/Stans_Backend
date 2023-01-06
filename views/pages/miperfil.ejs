@@ -14,13 +14,12 @@
 <body>
   <header class="nav-container"><%- include('../partials/navbar')%></header>
   <div class="flex-center">
-    <h1>BIENVENIDX <%=name%></h1>
-    <h2>CENTRO DE MENSAJES</h2>
+		<h1>BIENVENIDX a tu perfil <%=user.name%></h1>
+    <h2>A continuación tu info personal: </h2>
 
-    <div class="d-flex flex-row justify-content-center align-items-center">
-      <img src="/uploads/<%=user.image%>" style="height: 250px;">
+    <div>
       <div>
-        <h2 class=" text-uppercase">
+        <h2 >
           <%= user.name %>
         </h2>
         <p>Edad: <%= user.age %>

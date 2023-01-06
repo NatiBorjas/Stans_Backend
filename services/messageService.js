@@ -4,7 +4,6 @@ const { mensajesNormalize } = require("../src/normalizr/mensajesNormalize");
 
 const chatSocket =  async (socket, io) => {
 	let mensajes = await allMessages();
-	console.log(mensajes)
   io.sockets.emit("mensajes", mensajesNormalize(mensajes));
 
   socket.on("nuevo-mensaje", async (msje) => {

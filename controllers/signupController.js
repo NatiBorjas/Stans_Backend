@@ -15,16 +15,16 @@ const signupController = {
       });
       return res
         .status(500)
-        .send({ status: "Sign up Page Error (get)", body: error });
+        .send({ status: "Pagina de registro: Error (get)", body: error });
     }
   },
   postsignup: async (req, res) => {
     try {
       req.session.username = req.user;
 			let user = req.session.username;
-			console.log(user)
       await sendEmail(user);
-      res.status(200).redirect("/productos");
+			
+      res.status(200).redirect("/home");
     } catch (error) {
       errorLogger.error({
         error: error.message,

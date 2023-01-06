@@ -10,15 +10,16 @@ body {
   line-height: 45px;
   color: #00FFFF;
   background-color: #8B008B;
+	margin: 20px
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px 5px;
-    top: 0;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 5px;
+  top: 0;
+  width: 100%;
 }
 
 table {
@@ -62,20 +63,20 @@ a {
   color: #00FFFF;
 	}:visited {
     color: #00FFFF;
-	}:hover {
-	color: #0a0a23;
-}
+	}
 
 ul {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 ul li{
-    display: inline-block;
-    text-align: center;
-    list-style-type: none;
-    padding: 5px 10px;
+  display: inline-block;
+  text-align: center;
+  list-style-type: none;
+  padding: 5px 10px;
+}:hover {
+	color: #0a0a23;
 }
 
 input{

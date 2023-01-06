@@ -41,7 +41,7 @@ const sendPurchaseEmail = async (formattedProducts, user) => {
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
+      to: process.env.EMAIL_TO, username,
       subject: `Nuevo pedido de ${name}, ${username}`,
       html: `
       <h1>NUEVO PEDIDO RECIBIDO</h1>
@@ -51,7 +51,7 @@ const sendPurchaseEmail = async (formattedProducts, user) => {
       `,
     };
     const info = await transporter.sendMail(mailOptions);
-    logger.info({ message: "email enviado", info });
+    logger.info({ message: "correo enviado", info });
   } catch (err) {
     errorLogger.error(err);
   }

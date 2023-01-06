@@ -1,7 +1,11 @@
-const Users = require("../models/usuariosSchema");
+const Usuarios = require("../models/usuariosSchema");
 
 const update = async (userId, cartId) => {
-  return await Users.findOneAndUpdate({ _id: userId }, { cart_id: cartId });
+  return await Usuarios.findOneAndUpdate({ _id: userId }, { cart_id: cartId });
 };
 
-module.exports = { update };
+const perfil = async (userId) => {
+	return await Usuarios.findById({ _id: userId})
+};
+
+module.exports = { update, perfil };

@@ -1,4 +1,3 @@
-// const { crearProductosApi } = require("../models/mockApi/index.js");
 // const { errorLogger } = require("../src/utils/logger");
 
 const { Productos } = require("../models/productSchema");

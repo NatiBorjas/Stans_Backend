@@ -26,10 +26,10 @@
     <h3 class="text-center">
       <% if(cartValid) { %>
         Carrito ID = <%=cart._id%>
-          <% } %>
+        <% } %>
     </h3>
 
-    <table class="table my-1">
+    <table class="table">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -54,29 +54,25 @@
                 $<%=element.price%>
               </td>
               <td>
-                <img src="<%=element.thumbnail%>" class="w-50" alt="..." />
+                <img src="<%=element.thumbnail%>" alt="imagen <%=element.name%>" />
               </td>
               <td>
                 <button class="" value="<%=element.id%>" onclick="deleteProd(event)">Eliminar</button>
-
               </td>
             </tr>
             <%} )%>
               <% }%>
       </tbody>
     </table>
-    <div class="d-flex flex-row justify-content-center">
-
+    <div class="">
       <form action="/carrito" method="POST">
-        <button type="submit" class="btn btn-success " onclick="">Finalizar Compra</button>
+        <button type="submit" class="btn-enviar" onclick="">Finalizar Compra</button>
       </form>
     </div>
   </div>
 	
 	<div ><%- include('../partials/footer')%></div>
+	
+	<script src="/js/deleteProd.js"></script>
 </body>
-
-<script src="/js/deleteProd.js">
-</script>
-
 </html>
