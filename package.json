@@ -1,8 +1,8 @@
 {
 	"name": "backend_mern",
-	"description": "Proyecto de Curso Backend CoderHouse",
+	"description": "Proyecto Final del Curso Backend CoderHouse",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "server.js",
 	"scripts": {
 		"start": "node ./server.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -41,10 +41,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NatiBorjas/Backend_MERN.git"
+		"url": "git+https://github.com/NatiBorjas/Stans_Backend.git"
 	},
 	"bugs": {
-		"url": "https://github.com/NatiBorjas/Backend_MERN/issues"
+		"url": "https://github.com/NatiBorjas/Stans_Backend/issues"
 	},
-	"homepage": "https://github.com/NatiBorjas/Backend_MERN#readme"
+	"homepage": "https://github.com/NatiBorjas/Stans_Backend#readme"
 }
