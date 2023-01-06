@@ -21,49 +21,54 @@
 	</header>
 
 	
-	<div class="container d-flex flex-column w-50 my-2">
-    <h2 class="text-center">TU CARRITO</h2>
-    <h3 class="text-center">
-      <% if(cartValid) { %>
-        Carrito ID = <%=cart._id%>
-        <% } %>
-    </h3>
+	<div>
+		<div>
+			<h2>TU CARRITO</h2>
+			<h3>
+				<% if(cartValid) { %>
+					Carrito ID = <%=cart._id%>
+					<% } %>
+			</h3>
+		</div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Imagen</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
+		<div class="flex-center">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Name</th>
+						<th scope="col">Price</th>
+						<th scope="col">Imagen</th>
+						<th scope="col">Cantidad</th>
+					</tr>
+				</thead>
 
-      <tbody id="productsTable">
-        <% if (cart.productos) { %>
-          <% cart.productos.forEach((element)=> { %>
-            <tr>
-              <td style="text-transform: uppercase">
-                <%=element.id%>
-              </td>
-              <td style="text-transform: uppercase">
-                <%=element.name%>
-              </td>
-              <td>
-                $<%=element.price%>
-              </td>
-              <td>
-                <img src="<%=element.thumbnail%>" alt="imagen <%=element.name%>" />
-              </td>
-              <td>
-                <button class="" value="<%=element.id%>" onclick="deleteProd(event)">Eliminar</button>
-              </td>
-            </tr>
-            <%} )%>
-              <% }%>
-      </tbody>
-    </table>
+				<tbody id="productsTable">
+					<% if (cart.productos) { %>
+						<% cart.productos.forEach((element)=> { %>
+							<tr>
+								<td style="text-transform: uppercase">
+									<%=element.id%>
+								</td>
+								<td style="text-transform: uppercase">
+									<%=element.name%>
+								</td>
+								<td>
+									$<%=element.price%>
+								</td>
+								<td>
+									<img src="<%=element.thumbnail%>" alt="imagen <%=element.name%>" />
+								</td>
+								<td>
+									<button class="btn-enviar" value="<%=element.id%>" onclick="deleteProd(event)">Eliminar</button>
+								</td>
+							</tr>
+							<%} )%>
+								<% }%>
+				</tbody>
+			</table>
+
+		</div>
     <div class="">
       <form action="/carrito" method="POST">
         <button type="submit" class="btn-enviar" onclick="">Finalizar Compra</button>

@@ -14,7 +14,7 @@
 
   <body>
     <header class="nav-container"><%- include('../partials/navbar')%></header>
-    <div>
+    <div class="flex-center">
       <h2>LISTADO DE PRODUCTOS</h2>
       <table>
         <thead>
@@ -39,7 +39,7 @@
 								<td>
 									<form action="/carrito/producto" method="POST">
 										<input type="hidden" name="prod_id" value=<%=element.id%>>
-										<button type="submit" class="btn btn-success ">Agregar a carrito</button>
+										<button type="submit" class="btn-enviar btn-prod">Agregar</button>
 									</form>
 								</td>
 							</tr>

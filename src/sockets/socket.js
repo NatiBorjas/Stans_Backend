@@ -2,7 +2,7 @@ const {chatSocket} = require("../../services/messageService");
 
 const socketModel = (io) => {
   io.on("connection", async (socket) => {
-    console.log("Nuevo usuario conectado: " + socket.id);
+    console.log("Usuarix conectadx: " + socket.id);
     chatSocket(socket, io);
   });
 };
