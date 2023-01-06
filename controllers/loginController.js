@@ -22,9 +22,6 @@ const loginController = {
       res.status(200).render("pages/miperfil", {
 				user: req.user,
 			});
-      // res.status(200).send(user);
-			// res.status(200).redirect("/home");
-      // res.send(req.user);
     } catch (error) {
       errorLogger.error(urlMethodError(req));
       return res.status(500).send({ status: "Log In error", body: error });
