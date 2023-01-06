@@ -5,16 +5,10 @@ const saveMsg = async (mensaje) => {
 	await Mensajes.create(mensaje);
 };
 
-
-const getAllMsg = async (sort) =>{
+const getAllMsg = async () =>{
   try {
-    if (sort == true) {
-			return  await Mensajes.find({}).sort({ timestamp: -1 });
-    } else {
-      return await Mensajes.find({});
-    }
+		return  await Mensajes.find({}).sort({ timestamp: -1 });
   } catch (error) {
-		
 		errorLogger.error({
       error: error.message,
     });

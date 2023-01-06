@@ -9,7 +9,7 @@ const chatSocket =  async (socket, io) => {
   socket.on("nuevo-mensaje", async (msje) => {
     let mensaje = JSON.parse(msje);
     await saveMessage(mensaje);
-    let chat = await allMessages({ sort: true });
+    let chat = await allMessages();
     io.sockets.emit("mensajes", mensajesNormalize(chat));
   });
 };
